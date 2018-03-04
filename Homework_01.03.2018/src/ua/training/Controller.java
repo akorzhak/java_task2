@@ -30,6 +30,8 @@ public class Controller {
 
 		view.printMessage(View.START_THE_GAME);
 
+		setRangeBounds();
+
 		model.setSearchedValue();
 
 		do {
@@ -46,16 +48,53 @@ public class Controller {
 		} while ( ! model.checkGuessedValue());
 	}
 
+	private void setRangeBounds() {
+
+		int lower;
+		int upper;
+
+		view.printMessage(View.SET_RANGE_BOUNDS);
+		
+		do {
+			view.printMessage(View.SET_LOWER_BOUND);
+			while ( ! sc.hasNextInt()) {
+				view.printMessage(View.WRONG_INPUT_DATA + View.SET_LOWER_BOUND);
+				sc.next();
+			}
+			lower = sc.nextInt();
+
+			view.printMessage(View.SET_UPPER_BOUND);
+			while ( ! sc.hasNextInt()) {
+				view.printMessage(View.WRONG_INPUT_DATA + View.SET_UPPER_BOUND);
+				sc.next();
+			}
+			upper = sc.nextInt();
+			if (upper - lower < 5)
+				view.printMessage(View.WRONG_BOUNDS);
+		} while (upper - lower < 5);
+
+		model.from = lower;
+		model.to = upper;
+	}
+
 	private int inputIntValue(Scanner sc) {
+
+		int nb;
+
 		view.printMessage(View.INPUT_INT_VALUE + model.from +
 			             " to " + model.to + " = ");
-
-		while ( ! sc.hasNextInt()) {
-			view.printMessage(View.WRONG_INPUT_DATA + View.INPUT_INT_VALUE
+		do {
+			while ( ! sc.hasNextInt()) {
+				view.printMessage(View.WRONG_INPUT_DATA + View.INPUT_INT_VALUE
 			                 + model.from + " to " + model.to + " = ");
-			sc.next();
-		}
-		return sc.nextInt();
+				sc.next();
+			}
+			nb = sc.nextInt();
+
+			if (nb <= model.from || nb >= model.to)
+				view.printMessage(View.VALUE_OUT_OF_SCOPE);
+		} while (nb <= model.from || nb >= model.to)
+		return (nb);
 	}	
 
 	private void handleSuccessCase() {

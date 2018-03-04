@@ -14,10 +14,12 @@ package ua.training.task2;
 import java.util.Random;
 
 public class Model {
+
+	int from = 0;
+	int to = 100;	
 	private int searchedValue;
 	private int guessedValue;
-	int from = 0;
-	int to = 100;
+
 
 	public void setSearchedValue() {
 	    Random rand = new Random();
