@@ -25,7 +25,7 @@ public class View {
     public static final String INPUT_INT_VALUE = "Input INT value from ";
     public static final String WRONG_INPUT_DATA = "WRONG input! Repeat please! ";
     public static final String VALUE_OUT_OF_SCOPE = "WRONG input! " +
-            "Value OUT OF SCOPE! Repeat please! "
+            "Value OUT OF SCOPE! Repeat please! ";
     public static final String YOUR_VALUE = "Your value = ";
     public static final String SUCCESS = "SUCCESS! ";
     public static final String FAIL = "FAIL! Try arain! ";

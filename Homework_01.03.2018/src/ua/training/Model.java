@@ -11,19 +11,18 @@
  */
 package ua.training.task2;
 
-import java.util.Random;
-
 public class Model {
 
-	int from = 0;
-	int to = 100;	
+	int from;
+	int to;
 	private int searchedValue;
 	private int guessedValue;
 
 
 	public void setSearchedValue() {
-	    Random rand = new Random();
-		searchedValue = rand.nextInt(100);
+	    int min = from + 1;
+	    int max = to;
+		searchedValue = (int) (Math.random() * (max - min) + min);
 	}
 
 	public int getSearcedValue() {

@@ -30,7 +30,7 @@ public class Controller {
 
 		view.printMessage(View.START_THE_GAME);
 
-		setRangeBounds();
+		setRangeBounds(sc);
 
 		model.setSearchedValue();
 
@@ -48,7 +48,7 @@ public class Controller {
 		} while ( ! model.checkGuessedValue());
 	}
 
-	private void setRangeBounds() {
+	private void setRangeBounds(Scanner sc) {
 
 		int lower;
 		int upper;
@@ -93,7 +93,7 @@ public class Controller {
 
 			if (nb <= model.from || nb >= model.to)
 				view.printMessage(View.VALUE_OUT_OF_SCOPE);
-		} while (nb <= model.from || nb >= model.to)
+		} while (nb <= model.from || nb >= model.to);
 		return (nb);
 	}	
 
