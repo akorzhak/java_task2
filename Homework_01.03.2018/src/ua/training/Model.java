@@ -5,9 +5,11 @@
  * that generates a random integer. Then prompts a user to guess
  * the value by giving certain hints and guides.
  * 
- * Created by: Alyona Korzhakova 
+ * By: Alyona Korzhakova 
  *
- * Date: 2018/03/01
+ * Created: 2018/03/01
+ * 
+ * Updated: 2018/03/06
  */
 package ua.training.task2;
 

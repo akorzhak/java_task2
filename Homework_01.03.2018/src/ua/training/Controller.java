@@ -5,9 +5,11 @@
  * that generates a random integer. Then prompts a user to guess
  * the value by giving certain hints and guides.
  * 
- * Created by: Alyona Korzhakova 
+ * By: Alyona Korzhakova 
  *
- * Date: 2018/03/01
+ * Created: 2018/03/01
+ * 
+ * Updated: 2018/03/06
  */
 package ua.training.task2;
 
@@ -26,7 +28,9 @@ public class Controller {
 
 	//Work method
 	public void processUser() {
+
 		Scanner sc = new Scanner(System.in);
+		ArrayList<Statistic> statistic = new ArrayList<Statistic>();
 
 		view.printMessage(View.START_THE_GAME);
 
@@ -39,6 +43,8 @@ public class Controller {
 
 			view.printMessage(View.YOUR_VALUE + model.getGuessedValue());
 
+			statistic.add(new Statistic(model.getGuessedValue(), model.from, model.to));
+
 			if (model.checkGuessedValue()) {
 				handleSuccessCase();
 			} else {
@@ -46,6 +52,7 @@ public class Controller {
 			}
 			retry++;
 		} while ( ! model.checkGuessedValue());
+		view.printStatistic(statistic);
 	}
 
 	private void setRangeBounds(Scanner sc) {
