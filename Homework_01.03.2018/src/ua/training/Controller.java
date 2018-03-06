@@ -14,6 +14,7 @@
 package ua.training.task2;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Controller {
 	private Model model;
@@ -52,7 +53,9 @@ public class Controller {
 			}
 			retry++;
 		} while ( ! model.checkGuessedValue());
+
 		view.printStatistic(statistic);
+		view.printMessage(View.STATISTICS + retry);
 	}
 
 	private void setRangeBounds(Scanner sc) {
@@ -89,16 +92,16 @@ public class Controller {
 		int nb;
 
 		view.printMessage(View.INPUT_INT_VALUE + model.from +
-			             " to " + model.to + " = ");
-		do {
-			while ( ! sc.hasNextInt()) {
-				view.printMessage(View.WRONG_INPUT_DATA + View.INPUT_INT_VALUE
-			                 + model.from + " to " + model.to + " = ");
-				sc.next();
-			}
-			nb = sc.nextInt();
+                         " to " + model.to + " = ");
+        do {
+            while ( ! sc.hasNextInt()) {
+                view.printMessage(View.WRONG_INPUT_DATA + View.INPUT_INT_VALUE
+                             + model.from + " to " + model.to + " = ");
+            	sc.next();
+            }
+            nb = sc.nextInt();
 
-			if (nb <= model.from || nb >= model.to)
+            if (nb <= model.from || nb >= model.to)
 				view.printMessage(View.VALUE_OUT_OF_SCOPE);
 		} while (nb <= model.from || nb >= model.to);
 		return (nb);
@@ -107,7 +110,6 @@ public class Controller {
 	private void handleSuccessCase() {
 		
 		view.printMessage(View.SUCCESS);
-		view.printMessage(View.STATISTICS + retry);
 	}
 
 	private void handleFailCase() {

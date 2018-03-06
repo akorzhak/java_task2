@@ -13,9 +13,11 @@
  */
 package ua.training.task2;
 
+import java.util.ArrayList;
+
 public class View {
 
-	public static final String START_THE_GAME = "The game is now started!\n";
+    public static final String START_THE_GAME = "The game is now started!\n";
     public static final String SET_RANGE_BOUNDS = "Set the range bounds"
             + " for searched number.";
     public static final String SET_LOWER_BOUND = "Input INT value for"
@@ -33,7 +35,7 @@ public class View {
     public static final String FAIL = "FAIL! Try arain! ";
     public static final String SEARCHED_VALUE_BIGGER = "The searched value is BIGGER. ";
     public static final String SEARCHED_VALUE_SMALLER = "The searched value is SMALLER. ";
-    public static final String STATISTICS = "The number of RETRIES is: ";
+    public static final String STATISTICS = "\nThe number of RETRIES is: ";
 
     public void printMessage(String message) {
         System.out.println(message);
@@ -43,7 +45,7 @@ public class View {
 
         for (Statistic i : statistic) {
             printMessage("guessed value: " + i.getGuess() + "   Range: ("
-                        + i.getMin() + ", " + i.getMax() + ")\n");
+                        + i.getMin() + ", " + i.getMax() + ")");
         }
     }
 }

@@ -5,7 +5,7 @@
  * that generates a random integer. Then prompts a user to guess
  * the value by giving certain hints and guides.
  * 
- * By: Alyona Korzhakova 
+ * By: Alyona Korzhakova
  *
  * Created: 2018/03/01
  * 
